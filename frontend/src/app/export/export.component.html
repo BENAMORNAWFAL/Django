@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+
+<body>
+  <h2>Exemple Format Json</h2>
+
+
+
+  <div *ngFor="let document of documents "> "Document": "{{document.text}}", "annotation":[
+    <p *ngFor="let annotation of annotations">
+      <span *ngIf="annotation.document==document.id">
+        "start":{{annotation.start}}, "end": {{annotation.end}},
+        "Label": "{{annotation.label}}", "text":"{{ annotation.text_selected }}"
+      </span>
+    </p> ]
+  </div>
+  <div *ngIf="jsonData">
+    <h2>JSON Data:</h2>
+    <pre>{{ jsonData }}</pre>
+  </div>
+ 
+  <p>********************************************************************</p>
+  <div>
+    <button (click)="download()">Export Data as JSON</button>
+  </div>
+  
+  
+  
+</body>
+
+</html>

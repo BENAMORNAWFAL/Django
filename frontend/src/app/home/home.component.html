@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+
+<body>
+
+
+  <div class="formbig">
+    <form (ngSubmit)="processParagraph()">
+      <label for="paragraph">Paragraph Processor</label>
+      <textarea id="paragraph" placeholder="Enter a paragraph" class="paragraph" [(ngModel)]="paragraph"
+        name="paragraph" rows="10" cols="80"></textarea>
+      <button type="submit" (click)="processParagraph()" (click)="registerdocument()">Submit</button>
+    </form>
+
+    <!-- Input for Label List -->
+    <div>
+      <label for="labelInput">Add a Label:</label>
+      <input id="labelInput" type="text" [(ngModel)]="newLabel" name="newLabel" placeholder="Enter a new label">
+      <button (click)="addLabel()">Add</button>
+    </div>
+    <!-- List of Labels -->
+
+    <div class="labels">
+      <button *ngFor="let label of labelList; let i = index" [class]="labelClasses[i % labelClasses.length]"
+        (click)="onSelectLabel(label)">
+        {{ label }}
+      </button>
+    </div>
+
+
+
+    <!-- Paragraph Content to select from it-->
+    <div #newparagraphElement [innerHTML]="newparagraph" (mouseup)="onParagraphSelect($event)"> 
+      
+    </div>
+    
+  </div>
+
+
+
+
+  <div *ngFor="let selection of selections">
+    <p><strong>Selected Label:</strong> {{ selection.label }}</p>
+    <p><strong>Selection start:</strong>{{selectionStart}}</p>
+    <p><strong>Selection end:</strong>{{selectionEnd}}</p>
+    <p><strong>Selected Text:</strong> {{ paragraph.substring(selection.start, selection.end) }}</p>
+
+    <button (click)="registerAnnotations()">Register Annotations</button>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+.label-color-1 {
+    background-color: rgb(255, 217, 0);
+    color: white;
+  }
+  
+  .label-color-2 {
+    background-color: rgb(81, 255, 0);
+    color: white;
+  }
+  
+  .label-color-3 {
+    background-color: rgb(0, 128, 122);
+    color: white;
+  }
+  .label-color-4 {
+    background-color: rgb(0, 23, 128);
+    color: white;
+  }
+  .selected-text {
+    background-color: yellow; /* Change this to the desired highlight color */
+    color: black; /* Change this to the desired text color */
+  }
+
+
+  .labels{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  body, .formbig, form{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
